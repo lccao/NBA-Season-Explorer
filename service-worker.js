@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Nba-Season-Explorer/precache-manifest.6ee82068b990db163e81038a973aeb20.js"
+  "/NBA-Season-Explorer/precache-manifest.48384136ad1e918662cb2a440167467b.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Nba-Season-Explorer/index.html", {
+workbox.routing.registerNavigationRoute("/NBA-Season-Explorer/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

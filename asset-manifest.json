@@ -1,13 +1,13 @@
 {
-  "main.css": "/Nba-Season-Explorer/static/css/main.71f29883.chunk.css",
-  "main.js": "/Nba-Season-Explorer/static/js/main.56f46f6c.chunk.js",
-  "main.js.map": "/Nba-Season-Explorer/static/js/main.56f46f6c.chunk.js.map",
-  "static/js/1.3eec87a6.chunk.js": "/Nba-Season-Explorer/static/js/1.3eec87a6.chunk.js",
-  "static/js/1.3eec87a6.chunk.js.map": "/Nba-Season-Explorer/static/js/1.3eec87a6.chunk.js.map",
-  "runtime~main.js": "/Nba-Season-Explorer/static/js/runtime~main.6e902b41.js",
-  "runtime~main.js.map": "/Nba-Season-Explorer/static/js/runtime~main.6e902b41.js.map",
-  "static/css/main.71f29883.chunk.css.map": "/Nba-Season-Explorer/static/css/main.71f29883.chunk.css.map",
-  "index.html": "/Nba-Season-Explorer/index.html",
-  "precache-manifest.6ee82068b990db163e81038a973aeb20.js": "/Nba-Season-Explorer/precache-manifest.6ee82068b990db163e81038a973aeb20.js",
-  "service-worker.js": "/Nba-Season-Explorer/service-worker.js"
+  "main.css": "/NBA-Season-Explorer/static/css/main.71f29883.chunk.css",
+  "main.js": "/NBA-Season-Explorer/static/js/main.97a7df8c.chunk.js",
+  "main.js.map": "/NBA-Season-Explorer/static/js/main.97a7df8c.chunk.js.map",
+  "static/js/1.3eec87a6.chunk.js": "/NBA-Season-Explorer/static/js/1.3eec87a6.chunk.js",
+  "static/js/1.3eec87a6.chunk.js.map": "/NBA-Season-Explorer/static/js/1.3eec87a6.chunk.js.map",
+  "runtime~main.js": "/NBA-Season-Explorer/static/js/runtime~main.0d6cdd62.js",
+  "runtime~main.js.map": "/NBA-Season-Explorer/static/js/runtime~main.0d6cdd62.js.map",
+  "static/css/main.71f29883.chunk.css.map": "/NBA-Season-Explorer/static/css/main.71f29883.chunk.css.map",
+  "index.html": "/NBA-Season-Explorer/index.html",
+  "precache-manifest.48384136ad1e918662cb2a440167467b.js": "/NBA-Season-Explorer/precache-manifest.48384136ad1e918662cb2a440167467b.js",
+  "service-worker.js": "/NBA-Season-Explorer/service-worker.js"
 }
