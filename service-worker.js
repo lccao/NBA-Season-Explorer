@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/NBA-Season-Explorer/precache-manifest.48384136ad1e918662cb2a440167467b.js"
+  "/NBA-Season-Explorer/precache-manifest.99b7bf2052be7d9a2625a0ca68d64124.js"
 );
 
 workbox.clientsClaim();
