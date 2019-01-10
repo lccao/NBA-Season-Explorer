@@ -1,0 +1,22 @@
+.checkbox-wrapper{
+    box-sizing: border-box;
+    position:absolute;
+    right:0;
+    top:5vh;
+    padding-left: 3vw;
+    height:50vh;
+    width:15vw;
+    z-index: 10;
+    background-color: #FFFFFF;
+}
+
+.view {
+    height:45vh;
+    overflow: scroll;
+}
+
+.plot-buttom {
+    position: relative;
+    margin-left:3vw
+
+}
