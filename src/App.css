@@ -6,7 +6,7 @@
   /* display:flex; */
 }
 
-.control-wrapper{
+.control-container{
   position:absolute;
   top:5vh;
   right:15vw;
@@ -23,7 +23,7 @@
   top:5vh;
 }
 
-.input-wrapper {
+.input-container {
   position:relative;
   margin-top:5vh;
   width:40vw;
@@ -42,4 +42,27 @@
   padding-right:5vw;
   position: relative;
   left:10vw;
+}
+
+.select-form-wrapper{
+  box-sizing: border-box;
+  position:absolute;
+  right:0;
+  top:5vh;
+  padding-left: 3vw;
+  height:50vh;
+  width:15vw;
+  z-index: 10;
+  background-color: #FFFFFF;
+}
+
+.select-form {
+  height:45vh;
+  overflow: scroll;
+}
+
+.plot-buttom {
+  position: relative;
+  margin-left:3vw
+
 }

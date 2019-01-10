@@ -1,20 +1,15 @@
 import React, {Component} from 'react';
 // import {FormGroup} from '@material-ui/core/FormGroup';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch'
-import Checkbox from '@material-ui/core/Checkbox';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
-import TeamCheckbox from './components/TeamCheckbox/TeamCheckbox';
+import ControlContainer from './components/ControlContainer/ControlContainer';
+
 import Chart from './components/Chart/Chart';
+import AlertBox from './components/AlertBox/AlertBox';
 import './App.css'
+import InputContainer from './components/InputContainer/InputContainer';
+import SelectFormContainer from './components/SelectFormContainer/SelectFormContainer';
+
+
 
 class App extends Component {
   constructor(props){
@@ -27,9 +22,15 @@ class App extends Component {
       showHome: true,
       input:"",
       showAlertBox:false
-      
-      
     }
+
+    this.toggleCheckbox = this.toggleCheckbox.bind(this);
+    this.handleSelectTeam = this.handleSelectTeam.bind(this);
+    this.handleSwitch = this.handleSwitch.bind(this);
+    this.handleAlertBoxClose = this.handleAlertBoxClose.bind(this);
+    this.handleDataInput = this.handleDataInput.bind(this);
+    this.handleTextInput = this.handleTextInput.bind(this);
+    this.generateSampleData = this.generateSampleData.bind(this);
   }
 
   componentDidMount(){
@@ -88,7 +89,7 @@ class App extends Component {
   }
 
   handleSwitch(type){
-    type === 'visitor'? 
+    type === 'Visitor'? 
     this.setState({
       showVisitor:!this.state.showVisitor
     })
@@ -99,7 +100,6 @@ class App extends Component {
   }
 
   generateSampleData(){
-    // console.log("sample::",this.state.teams.get("Golden State Warriors"));
     let input_data = [];
     const sample_data = {
       name:"Golden State Warriors",
@@ -107,7 +107,6 @@ class App extends Component {
     }
     input_data.push(sample_data)
     
-    console.log("input_data",input_data);
     this.setState({
       input: JSON.stringify(input_data)
     })
@@ -127,6 +126,12 @@ class App extends Component {
     })
   }
 
+  handleTextInput(e){
+    this.setState({
+      input: e.target.value
+    })
+  }
+
   handleAlertBoxClose(){
     this.setState({
       showAlertBox:false
@@ -135,120 +140,44 @@ class App extends Component {
 
   render(){
     const {selectedTeams} = this.state;
-    const data_placeholder=`[\n{"name":"Golden State Warriors","data":[{"date":"10/25/16","isVisitor":false,"score":100},{"date":"10/29/16","isVisitor":true,"score":120}]},\n{"name":"Los Angeles Lakers","data":[{"date":"11/1/16","isVisitor":true,"score":106},{"date":"11/3/16","isVisitor":true,"score":118}]}\n]`;
     return(
       <div className='app'>
-        <div className='chart'>
-            <Chart 
-              selectedTeams = {selectedTeams}
-              showVisitor = {this.state.showVisitor}
-              showHome = {this.state.showHome}
-            />
-        </div>      
-        <div>
-        {
-          this.state.showCheckbox?
-          <div className='checkbox'>
-          <TeamCheckbox 
-            teams={this.state.teams.keys()}
-            closeCheckbox = {()=>this.toggleCheckbox()}
-            handleTeams = {(teams) => this.handleSelectTeam(teams)}
-          />
-          </div>:null
-        }
+        <Chart 
+          selectedTeams = {selectedTeams}
+          showVisitor = {this.state.showVisitor}
+          showHome = {this.state.showHome}
+        />      
+        <ControlContainer 
+          showCheckbox = {this.state.showCheckbox}
+          toggleCheckbox = {this.toggleCheckbox}
+          onSwitchChange = {this.handleSwitch}
+          showHome = {this.state.showHome}
+          showVisitor = {this.state.showVisitor}
         
-          <div className='control-wrapper'>
-            <div className='control'>
-              {/* <FormGroup row> */}
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={this.state.showVisitor}
-                    onChange={()=>this.handleSwitch('visitor')}
-                    color='primary'
-                    value="checkedVisitor"
-                  />
-                }
-                label="Visitor"
-              />
-               <FormControlLabel
-                control={
-                  <Switch
-                    checked={this.state.showHome}
-                    onChange={()=>this.handleSwitch('home')}
-                    color='primary'
-                    value="checkedHome"
-                  />
-                }
-                label="Home"
-              />
-            </div>
-            <div className='control'>
-            <Button 
-              onClick={()=>this.toggleCheckbox()}
-              variant="contained" 
-              size='small'
-              color='primary'              
-              > Select Teams </Button>
-            </div>
-          </div>
-        </div>
-        <div className='input-wrapper'>
-          <TextField
-            id="outlined-multiline-flexible"
-            label="Input Data"
-            multiline
-            rows='8'
-            rowsMax="8"
-            value={this.state.input}
-            onChange={(e)=>{this.setState({input:e.target.value})}}
-            margin="normal"
-            placeholder={data_placeholder}
-            variant="outlined"
-          />
-          <div className='input-button'>
-          <Button onClick={()=>this.generateSampleData()} 
-                  variant='contained'
-                  size='small'
-                  fullWidth
-                  color='primary'
-                  >
-                  Sample Input
-          </Button>
-          </div>
-          <div className='input-button'>
-          <Button onClick={()=>this.handleDataInput()} 
-                  variant='contained'
-                  disabled = {this.state.input === "" ? true : false}
-                  size='small'
-                  fullWidth
-                  color='primary'>
-                  Plot
-          </Button>
-          </div>
-        </div>
-        <div className='alert'>
-            <Dialog
-              open={this.state.showAlertBox}
-              onClose={()=>this.handleAlertBoxClose()}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description"
-            >
-              <DialogTitle id="alert-dialog-title">{"Incorrect input format"}</DialogTitle>
-              <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                  Try the sample data first!
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={()=>this.handleAlertBoxClose()} color="primary" autoFocus style={{margin:'0 auto'}}>
-                  Got it!
-                </Button>
-              </DialogActions>
-            </Dialog>
-        </div>
+        />
+        <SelectFormContainer 
+          teamNames={this.state.teams.keys()}
+          closeCheckbox = {this.toggleCheckbox}
+          handleSelectTeam = {this.handleSelectTeam}
+          showCheckbox={this.state.showCheckbox}
+        />
+        <InputContainer 
+          handleDataInput = {this.handleDataInput}
+          input = {this.state.input}
+          onTextInputChange = {this.handleTextInput}
+          generateDataButtonClick = {this.generateSampleData}
+                        
+        />
+        <AlertBox 
+          open = {this.state.showAlertBox} 
+          onClose = {this.handleAlertBoxClose}
+          title = "Incorrect Input Format"
+          content = "Try Sample Data First!"
+          buttonDisplay = "Got it!"
+        />
       </div>
     )
+  }
 }
-}
+
 export default App;
