@@ -6,7 +6,7 @@ const Chart = ({selectedTeams, showVisitor, showHome}) => {
     let series = [];
 
     selectedTeams.forEach(team => {
-        let team_data = []
+        let team_data = [];
         for (let data of team.data){
             // filter Visitor/Home game
             if (!showVisitor && !showHome) break;

@@ -7,11 +7,11 @@ import './SelectFormContainer.css';
 class SelectFormContainer extends Component {
   constructor(props){
     super(props);
-    this.state=({
+    this.state = {
       teams:[]
-    })
+    }
 
-    this.handleSubmit=this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -56,23 +56,22 @@ class SelectFormContainer extends Component {
     
     return(
       <div>
-        {showCheckbox && 
-        <div className='select-form-wrapper'>
-          <div className='plot-buttom'>
-            <Button
-              variant="contained" 
-              color="primary"
-              size='small'
-              onClick = {this.handleSubmit}>Plot</Button>
+        {showCheckbox && (
+          <div className='select-form-wrapper'>
+            <div className='plot-buttom'>
+              <Button variant="contained" color="primary" size="small" onClick={this.handleSubmit}>
+                Plot
+              </Button>
+            </div>
+            <div className='select-form'>
+              <SelectGroup 
+                  teams={teams}
+                  handleSelectTeam={this.props.handleSelectTeam}
+                  handleChange={this.handleChange}
+              />
+            </div>
           </div>
-          <div className='select-form'>
-            <SelectGroup 
-                teams={teams}
-                handleSelectTeam = {this.props.handleSelectTeam}
-                handleChange = {this.handleChange}
-            />
-          </div>
-        </div>}
+        )}
       </div>
     )
   }

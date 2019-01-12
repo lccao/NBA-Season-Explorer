@@ -9,7 +9,7 @@ const MySwitch = ({checked, onChange, value, label}) => {
                 <Switch
                     checked={checked}
                     onChange={onChange}
-                    color='primary'
+                    color="primary"
                     value={value}
                 />
             }

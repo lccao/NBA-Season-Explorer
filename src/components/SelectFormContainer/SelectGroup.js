@@ -7,23 +7,28 @@ const FormList = ({team, handleChange}) => {
     return (
         <FormControlLabel          
             control={
-            <Checkbox 
-                checked={team.checked} 
-                color='primary' 
-                onChange={handleChange(team.id)} 
-                value={team.name}
-            />
+                <Checkbox 
+                    checked={team.checked} 
+                    color="primary"
+                    onChange={handleChange(team.id)} 
+                    value={team.name}
+                />
             }
             label={team.name}
         />
     )
 }
 
-const SelectGroup = (props) => {
-    const {teams} = props;
+const SelectGroup = ({teams, handleChange}) => {
     return(
         <FormGroup>
-            {teams.map(team => <FormList key={team.id} team = {team} handleChange = {props.handleChange}/>)}
+            {teams.map(team => 
+                <FormList 
+                    key={team.id} 
+                    team={team} 
+                    handleChange={handleChange}
+                />
+            )}
         </FormGroup>
     )
     

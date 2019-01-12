@@ -1,20 +1,16 @@
 import React, {Component} from 'react';
-// import {FormGroup} from '@material-ui/core/FormGroup';
-
-import ControlContainer from './components/ControlContainer/ControlContainer';
-
 import Chart from './components/Chart/Chart';
 import AlertBox from './components/AlertBox/AlertBox';
-import './App.css'
 import InputContainer from './components/InputContainer/InputContainer';
+import ControlContainer from './components/ControlContainer/ControlContainer';
 import SelectFormContainer from './components/SelectFormContainer/SelectFormContainer';
-
+import './App.css'
 
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state={
+    this.state = {
       showCheckbox:false,
       teams:[],
       selectedTeams:[],
@@ -76,16 +72,16 @@ class App extends Component {
 
   handleSelectTeam(names) {
     let selectedTeams = [];
-    for (let name of names) {
+
+    names.forEach(name => {
       const team = {
         name: name,
         data: this.state.teams.get(name),
       }
       selectedTeams.push(team);
-    }
-    this.setState({
-      selectedTeams
     })
+      
+    this.setState({selectedTeams})
   }
 
   handleSwitch(type){
@@ -143,37 +139,36 @@ class App extends Component {
     return(
       <div className='app'>
         <Chart 
-          selectedTeams = {selectedTeams}
-          showVisitor = {this.state.showVisitor}
-          showHome = {this.state.showHome}
+          selectedTeams={selectedTeams}
+          showVisitor={this.state.showVisitor}
+          showHome={this.state.showHome}
         />      
         <ControlContainer 
-          showCheckbox = {this.state.showCheckbox}
-          toggleCheckbox = {this.toggleCheckbox}
-          onSwitchChange = {this.handleSwitch}
-          showHome = {this.state.showHome}
-          showVisitor = {this.state.showVisitor}
-        
+          showCheckbox={this.state.showCheckbox}
+          toggleCheckbox={this.toggleCheckbox}
+          onSwitchChange={this.handleSwitch}
+          showHome={this.state.showHome}
+          showVisitor={this.state.showVisitor}
         />
         <SelectFormContainer 
           teamNames={this.state.teams.keys()}
-          closeCheckbox = {this.toggleCheckbox}
-          handleSelectTeam = {this.handleSelectTeam}
+          closeCheckbox={this.toggleCheckbox}
+          handleSelectTeam={this.handleSelectTeam}
           showCheckbox={this.state.showCheckbox}
         />
         <InputContainer 
-          handleDataInput = {this.handleDataInput}
-          input = {this.state.input}
-          onTextInputChange = {this.handleTextInput}
-          generateDataButtonClick = {this.generateSampleData}
+          handleDataInput={this.handleDataInput}
+          input={this.state.input}
+          onTextInputChange={this.handleTextInput}
+          generateDataButtonClick={this.generateSampleData}
                         
         />
         <AlertBox 
-          open = {this.state.showAlertBox} 
-          onClose = {this.handleAlertBoxClose}
-          title = "Incorrect Input Format"
-          content = "Try Sample Data First!"
-          buttonDisplay = "Got it!"
+          open={this.state.showAlertBox} 
+          onClose={this.handleAlertBoxClose}
+          title="Incorrect Input Format"
+          content="Try Sample Data First!"
+          buttonDisplay="Got it!"
         />
       </div>
     )

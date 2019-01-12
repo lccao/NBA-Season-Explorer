@@ -11,7 +11,7 @@ class InputContainer extends React.Component {
                     id="outlined-multiline-flexible"
                     label="Input Data"
                     multiline
-                    rows='8'
+                    rows="8"
                     rowsMax="8"
                     value={this.props.input}
                     onChange={this.props.onTextInputChange}
@@ -20,25 +20,13 @@ class InputContainer extends React.Component {
                     variant="outlined"
                 />
                 <div className='input-button'>
-                    <Button 
-                        onClick={this.props.generateDataButtonClick} 
-                        variant='contained'
-                        size='small'
-                        fullWidth
-                        color='primary'
-                        >
+                    <Button variant="contained" size="small" fullWidth color="primary" onClick={this.props.generateDataButtonClick}>
                         Sample Input
                     </Button>
                 </div>
                 <div className='input-button'>
-                    <Button 
-                            onClick={this.props.handleDataInput} 
-                            variant='contained'
-                            disabled = {this.props.input === ''}
-                            size='small'
-                            fullWidth
-                            color='primary'>
-                            Plot
+                    <Button variant="contained" disabled = {this.props.input === ''} size="small" fullWidth color="primary" onClick={this.props.handleDataInput}>
+                        Plot
                     </Button>
                 </div>
         </div>
