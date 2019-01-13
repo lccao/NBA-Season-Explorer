@@ -5,7 +5,7 @@
 
   
 
-A React Web App that display multiple teams' seasonal data in one chart.
+A React Web App that virtualize NBA game data.
 
 **Features**:
 
@@ -17,7 +17,15 @@ A React Web App that display multiple teams' seasonal data in one chart.
     
 -   Provide a simple text area where the user can paste the data to plot
 
-**Highcharts.js,** **@Materials-UI/core**  were used to display the data.
+
+
+**Highcharts.js,** **Material-UI**  were used to display the data and UI.
+
+
+
+**Live demo** could be found [here](https://lccao.github.io/NBA-Season-Explorer).
+
+
 
 Git clone or download and run the commands below(**Node.js** Required)
  
@@ -25,4 +33,6 @@ Git clone or download and run the commands below(**Node.js** Required)
 ###  `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+
 
