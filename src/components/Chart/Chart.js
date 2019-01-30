@@ -2,7 +2,7 @@ import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-const Chart = ({selectedTeams, showVisitor, showHome}) => {
+function Chart({ selectedTeams, showVisitor, showHome }) {
     let series = [];
 
     selectedTeams.forEach(team => {

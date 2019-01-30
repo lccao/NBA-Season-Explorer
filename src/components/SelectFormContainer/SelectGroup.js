@@ -3,7 +3,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const FormList = ({team, handleChange}) => {
+function FormList({ team, handleChange }) {
     return (
         <FormControlLabel          
             control={
@@ -19,7 +19,7 @@ const FormList = ({team, handleChange}) => {
     )
 }
 
-const SelectGroup = ({teams, handleChange}) => {
+function SelectGroup({ teams, handleChange }) {
     return(
         <FormGroup>
             {teams.map(team => 

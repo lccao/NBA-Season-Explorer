@@ -2,7 +2,7 @@ import React from 'react';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-const MySwitch = ({checked, onChange, value, label}) => {
+function MySwitch({ checked, onChange, value, label }) {
     return(
         <FormControlLabel
             control={

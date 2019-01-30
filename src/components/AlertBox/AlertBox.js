@@ -6,7 +6,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button'
 
-const AlertBox = ({open, onClose, title, content, buttonDisplay}) => {
+function AlertBox({ open, onClose, title, content, buttonDisplay }) {
   return(
     <div className='alert'>
       <Dialog
